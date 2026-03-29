@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Side Hustle Catalogue - Real Income-Generating Deployments</title>
+    <meta name="description" content="Comprehensive catalogue of verified OpenClaw side hustles and income-generating projects. Real revenue numbers, setups, and lessons from actual users.">
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --secondary: #64748b;
+            --success: #10b981;
+            --success-dark: #059669;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+            --orange: #f97316;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
+            color: white;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card.success {
+            background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
+        }
+
+        .stat-card.warning {
+            background: linear-gradient(135deg, var(--warning) 0%, #d97706 100%);
+        }
+
+        .stat-card.purple {
+            background: linear-gradient(135deg, var(--purple) 0%, #7c3aed 100%);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .search-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-tab {
+            padding: 12px 24px;
+            border: none;
+            background: var(--bg);
+            color: var(--text);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .category-tab:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .category-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .use-case-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .use-case-card.freelance { border-left-color: var(--primary); }
+        .use-case-card.content { border-left-color: var(--purple); }
+        .use-case-card.ecommerce { border-left-color: var(--success); }
+        .use-case-card.sales { border-left-color: var(--pink); }
+        .use-case-card.dev { border-left-color: var(--orange); }
+        .use-case-card.trading { border-left-color: var(--warning); }
+
+        .use-case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .use-case-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .use-case-category {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .cat-freelance { background: #dbeafe; color: var(--primary-dark); }
+        .cat-content { background: #ede9fe; color: #7c3aed; }
+        .cat-ecommerce { background: #d1fae5; color: var(--success-dark); }
+        .cat-sales { background: #fce7f3; color: #db2777; }
+        .cat-dev { background: #ffedd5; color: #ea580c; }
+        .cat-trading { background: #fef3c7; color: #d97706; }
+
+        .use-case-metric {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            background: var(--bg);
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .metric-label {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            display: block;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: var(--success);
+        }
+
+        .use-case-details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .detail-row {
+            margin: 8px 0;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .expand-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+
+        .expand-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .use-case-body {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border);
+        }
+
+        .use-case-card.expanded .use-case-body {
+            display: block;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--bg);
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        tr:hover {
+            background: var(--bg);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .badge-primary { background: var(--primary); color: white; }
+        .badge-success { background: var(--success); color: white; }
+        .badge-warning { background: var(--warning); color: white; }
+        .badge-purple { background: var(--purple); color: white; }
+
+        .source-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .source-link:hover {
+            background: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .use-case-grid { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 OpenClaw Side Hustle Catalogue</h1>
+            <p>Real income-generating deployments from actual users. Verified revenue numbers, concrete setups, and lessons learned.</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Verified Use Cases</div>
+            </div>
+            <div class="stat-card success">
+                <div class="stat-number">$14,718</div>
+                <div class="stat-label">Top Reported Earnings (2.5 weeks)</div>
+            </div>
+            <div class="stat-card warning">
+                <div class="stat-number">$1,200</div>
+                <div class="stat-label">Avg Monthly VA Savings</div>
+            </div>
+            <div class="stat-card purple">
+                <div class="stat-number">15-22</div>
+                <div class="stat-label">Hours Saved/Week</div>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Search use cases by keyword, tool, or revenue..." onkeyup="filterUseCases()">
+        </div>
+
+        <nav class="category-tabs">
+            <button class="category-tab active" onclick="filterCategory('all')">All</button>
+            <button class="category-tab" onclick="filterCategory('freelance')">Freelance & Services</button>
+            <button class="category-tab" onclick="filterCategory('content')">Content & Media</button>
+            <button class="category-tab" onclick="filterCategory('ecommerce')">E-commerce</button>
+            <button class="category-tab" onclick="filterCategory('sales')">Lead Gen & Sales</button>
+            <button class="category-tab" onclick="filterCategory('dev')">Development & SaaS</button>
+            <button class="category-tab" onclick="filterCategory('trading')">Trading & Finance</button>
+        </nav>
+
+        <div class="use-case-grid" id="useCaseGrid">
+            <!-- Use cases will be populated by JavaScript -->
+        </div>
+
+        <div class="section">
+            <h2>📊 Revenue & Time Savings Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Revenue Range</th>
+                        <th>Time Saved</th>
+                        <th>Setup Cost</th>
+                        <th>Common Tools</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge badge-primary">Freelance</span></td>
+                        <td>$500-1,500/month per client</td>
+                        <td>8-14 hours/week</td>
+                        <td>$15-50/month API</td>
+                        <td>Gmail, Calendar, Notion, Stripe</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-purple">Content</span></td>
+                        <td>$2,400-3,000/week (12-15 articles)</td>
+                        <td>15-22 hours/week</td>
+                        <td>$30-100/month API</td>
+                        <td>RSS, Web Search, CMS, Social APIs</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-success">E-commerce</span></td>
+                        <td>Varies (margin defense + faster testing)</td>
+                        <td>2-3 hours/day</td>
+                        <td>$20-60/month API</td>
+                        <td>Shopify, Meta Ads, AliExpress, TikTok</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-success">Sales</span></td>
+                        <td>6-agent system: zero employees</td>
+                        <td>Full sales cycle automated</td>
+                        <td>$40-80/month API</td>
+                        <td>Web scraping, Email, Payment processing</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-warning">Trading</span></td>
+                        <td>$149-249/month subscription savings</td>
+                        <td>5-10 hours/week</td>
+                        <td>$20-40/month API</td>
+                        <td>TradingView, Browser automation, Vision models</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Getting Started: Your First Income-Generating Agent</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="background: var(--bg); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--primary); margin-bottom: 10px;">1. Start with VA Replacement</h3>
+                    <p style="font-size: 0.95rem;">Email triage, scheduling, research. Saves ~$1,200/month in VA costs. Setup: 2-3 hours. API: ~$30/month.</p>
+                </div>
+                <div style="background: var(--bg); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--purple); margin-bottom: 10px;">2. Freelance Setup Services</h3>
+                    <p style="font-size: 0.95rem;">Offer OpenClaw configuration to others. Earn $500-750/month for 8 hours/week. Requires: master OpenClaw yourself first.</p>
+                </div>
+                <div style="background: var(--bg); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--success); margin-bottom: 10px;">3. Content Pipeline</h3>
+                    <p style="font-size: 0.95rem;">Automated research → newsletter → paid readership. One writer grew to 8,000+ paid subscribers with 30 min/day work.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚠️ Important: Managing Expectations</h2>
+            <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 25px; border-radius: 12px; border-left: 4px solid var(--warning); margin-top: 20px;">
+                <h4 style="color: #92400e; margin-bottom: 15px;">Realistic Timeline</h4>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li><strong>Week 1:</strong> 10-20 hours setup + learning</li>
+                    <li><strong>Week 2-3:</strong> 5-10 hours/week optimization</li>
+                    <li><strong>Week 4+:</strong> 1-2 hours/week maintenance</li>
+                </ul>
+                <h4 style="color: #92400e; margin-bottom: 10px; margin-top: 20px;">Common Mistakes</h4>
+                <ul style="margin-left: 20px;">
+                    <li>Using Claude Opus for everything → $160+/month surprise</li>
+                    <li>Expecting immediate perfection (agents make mistakes initially)</li>
+                    <li>Underestimating iteration time (2-3 weeks of optimization)</li>
+                    <li>Not monitoring API costs daily in first week</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔐 Security Best Practices</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                <div style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); padding: 20px; border-radius: 12px; border-left: 4px solid var(--success);">
+                    <h4 style="color: #065f46; margin-bottom: 10px;">✅ DO</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Only install skills from trusted sources</li>
+                        <li>Review skill code before installing</li>
+                        <li>Run on dedicated machine or VM</li>
+                        <li>Use separate API keys (not primary accounts)</li>
+                        <li>Enable security scanning</li>
+                    </ul>
+                </div>
+                <div style="background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); padding: 20px; border-radius: 12px; border-left: 4px solid var(--danger);">
+                    <h4 style="color: #991b1b; margin-bottom: 10px;">❌ DON'T</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Install skills with >100 downloads and no reviews</li>
+                        <li>Give file system access to untrusted skills</li>
+                        <li>Use production API keys in testing</li>
+                        <li>Expose gateway to public internet without hardening</li>
+                        <li>Ignore security warnings from community</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const useCases = [
+            {
+                id: 1,
+                title: "Felix Craft - AI Building Its Own Business",
+                category: "sales",
+                who: "Nat Eliason's OpenClaw bot (Felix)",
+                revenue: "$14,718 in 2.5 weeks",
+                timeSaved: "Zero human employees",
+                setup: "Mac Mini, full control over websites/email/Stripe/bank, Telegram-only human collaboration, 3-layer memory system",
+                what: "Built 'How to Hire an AI' PDF (~$9,000 sales) + Claw Mart marketplace (~$6,500 volume, 50+ creators)",
+                tools: "Stripe, Email, Web publishing, Knowledge graph, Daily notes, Tacit memory",
+                cost: "API costs not disclosed (likely $100-300/month)",
+                gotchas: "Requires security hardening, prompt injection resistance, multi-threaded chat management",
+                source: "https://felixcraft.ai"
+            },
+            {
+                id: 2,
+                title: "VA Cost Replacement - Email & Scheduling Automation",
+                category: "freelance",
+                who: "Small business owner (anonymized)",
+                revenue: "$1,200/month savings",
+                timeSaved: "20-30 hours/month",
+                setup: "2-3 hours initial, tiered routing (Gemini Flash routine, Claude Sonnet complex)",
+                what: "Email triage/drafting, calendar scheduling, research aggregation, customer support auto-response",
+                tools: "Gmail integration, Calendar, File management, Message routing",
+                cost: "~$30/month API",
+                gotchas: "Never send without approval unless pre-authorized, VIP list management, escalation rules for urgent emails",
+                source: "https://openclawdesktop.com/blog/openclaw-income-generation-community-stories.html"
+            },
+            {
+                id: 3,
+                title: "Freelance OpenClaw Setup Services",
+                category: "freelance",
+                who: "Community member (Reddit)",
+                revenue: "$500-750/month",
+                timeSaved: "8 hours/week work",
+                setup: "Master OpenClaw, build 3-5 agents, document setups, post in r/openclaw",
+                what: "Custom agent configuration ($200-500/setup), SOUL.md templates ($100-300), workflow automation ($500-1,000), maintenance retainers ($100-200/month)",
+                tools: "SOUL.md, STYLE.md, Workflow analysis, Client communication",
+                cost: "$0 (your time only)",
+                gotchas: "Be transparent about capabilities, don't overpromise, build portfolio first",
+                source: "https://openclawdesktop.com/blog/openclaw-income-generation-community-stories.html"
+            },
+            {
+                id: 4,
+                title: "Trading Bot Automation (TradingView)",
+                category: "trading",
+                who: "@bheem1798",
+                revenue: "$149-249/month subscription savings",
+                timeSaved: "5-10 hours/week",
+                setup: "2-4 hours, browser automation + vision models",
+                what: "Logs into TradingView via browser, captures chart screenshots, performs technical analysis with vision models, sends Telegram/Discord alerts",
+                tools: "Browser control, Canvas, Vision analysis, Telegram/Discord",
+                cost: "$20-40/month API (vision models)",
+                gotchas: "Session timeout handling, CAPTCHA management, optimize screenshot frequency to control vision model costs",
+                source: "https://openclawdesktop.com/blog/openclaw-income-generation-community-stories.html"
+            },
+            {
+                id: 5,
+                title: "SEO Content Agency - 12-15 Articles/Week",
+                category: "content",
+                who: "Operator tracked on Medium",
+                revenue: "$2,400-3,000/week",
+                timeSaved: "90 min vs 6 hours per article",
+                setup: "Content automation engine with research → outline → draft → SEO optimization pipeline",
+                what: "Produces equivalent quality in 90 minutes instead of 6 hours per article, handles 12-15 articles weekly at $200 each",
+                tools: "Web search, CMS integration, SEO tools, Keyword research",
+                cost: "$40-100/month API (tiered routing)",
+                gotchas: "Quality control essential, human review still needed, don't use expensive models for everything",
+                source: "https://medium.com/@sonuyadav1/the-10-openclaw-agents-that-are-actually-printing-money-in-2026-and-how-you-can-get-started-dc65afd23498"
+            },
+            {
+                id: 6,
+                title: "TikTok Content Factory - 550 Videos/Day",
+                category: "content",
+                who: "Anonymous creator",
+                revenue: "Affiliate commissions (not disclosed)",
+                timeSaved: "Full video team replaced",
+                setup: "AI persona on-camera, voice cloning, AI video tools, OpenClaw orchestration",
+                what: "550+ product advertisement videos daily, no actors/studio/physical products, creator reviews output and collects commissions",
+                tools: "Voice cloning, AI video generation, Affiliate platforms, OpenClaw pipeline",
+                cost: "Not disclosed (likely $100-300/month)",
+                gotchas: "Quality review essential, platform compliance, avoid spam filters",
+                source: "https://www.myopenclaw.cloud/blog/how-to-make-money-with-openclaw-2026"
+            },
+            {
+                id: 7,
+                title: "Automated Local Business Agency - 6 Agents",
+                category: "sales",
+                who: "Solo operator",
+                revenue: "Not disclosed (full sales cycle automated)",
+                timeSaved: "Zero employees needed",
+                setup: "6 specialized agents in parallel pipeline",
+                what: "Agent 1: scans for businesses without website, Agent 2: builds demo site, Agent 3: sends personalized outreach, Agent 4: handles objections, Agent 5: processes payments, Agent 6: tracks metrics",
+                tools: "Web scraping, Website builder, Email automation, Payment processing, Analytics",
+                cost: "$40-80/month API",
+                gotchas: "Millions of local businesses without websites is the TAM, full sales cycle runs without human intervention",
+                source: "https://www.myopenclaw.cloud/blog/how-to-make-money-with-openclaw-2026"
+            },
+            {
+                id: 8,
+                title: "24/7 Video Editing Pipeline",
+                category: "content",
+                who: "Video editor",
+                revenue: "Capacity: 8 → 30+ clients/month",
+                timeSaved: "Rough cut automation",
+                setup: "Client upload form → OpenClaw assembly → music sync → captions → delivery",
+                what: "Client uploads raw footage, OpenClaw assembles rough cut, selects/licenses music, generates captions/color grading/export specs, delivers draft within hours",
+                tools: "Video editing APIs, Music licensing, Caption generation, File management",
+                cost: "Not disclosed",
+                gotchas: "Editor handles client relationships and final approval only, everything else automated",
+                source: "https://www.myopenclaw.cloud/blog/how-to-make-money-with-openclaw-2026"
+            },
+            {
+                id: 9,
+                title: "Content Arbitrage - Newsletter Pipeline",
+                category: "content",
+                who: "Newsletter writer",
+                revenue: "8,000+ paid subscribers",
+                timeSaved: "30 min/day vs hours of research",
+                setup: "50+ RSS feeds + Reddit + X monitoring, autonomous research → draft → publish",
+                what: "Monitors 50+ sources daily, identifies high-engagement stories before mainstream, drafts newsletter with analysis, writer reviews/edits/publishes in 30 minutes",
+                tools: "RSS feeds, Reddit API, X/Twitter API, Newsletter platform",
+                cost: "$30-60/month API",
+                gotchas: "OpenClaw is the research team, writer provides original commentary and final review",
+                source: "https://www.myopenclaw.cloud/blog/how-to-make-money-with-openclaw-2026"
+            },
+            {
+                id: 10,
+                title: "Freelance Invoice Tracking & Payment Follow-Up",
+                category: "freelance",
+                who: "Freelancer (composite case)",
+                revenue: "$1,200-2,500/quarter faster cash flow",
+                timeSaved: "1.5-2 hours/week",
+                setup: "Local invoice CSV/markdown tracker, daily check cron, email templates",
+                what: "Scans invoices daily, flags approaching/past due, drafts follow-ups (7 days before, due date, 7 days overdue, 14+ days), gets paid 2 weeks faster on average",
+                tools: "File management, Email drafting, Cron scheduling",
+                cost: "$10-20/month API",
+                gotchas: "Money recovered is already owed but not collected efficiently, not new revenue but improved cash flow",
+                source: "https://openclawdesktop.com/blog/openclaw-for-freelancers-workflows.html"
+            },
+            {
+                id: 11,
+                title: "Freelance Client Communication Autopilot",
+                category: "freelance",
+                who: "Freelancer with 4-6 active clients",
+                revenue: "N/A (time savings)",
+                timeSaved: "3-4 hours/week",
+                setup: "Project notes feed, email templates, weekly status format",
+                what: "Weekly status updates, check-in messages, meeting follow-ups - all drafted from project notes, 5 min/client instead of 15",
+                tools: "Email, Project management integration, Template system",
+                cost: "$10-20/month API",
+                gotchas: "Always review before sending, maintain consistent format, clients feel like they're your only client",
+                source: "https://openclawdesktop.com/blog/openclaw-for-freelancers-workflows.html"
+            },
+            {
+                id: 12,
+                title: "Freelance Time Tracking & Billable Hour Recovery",
+                category: "freelance",
+                who: "Freelancer (composite case)",
+                revenue: "$7,800-39,000/year recovered",
+                timeSaved: "1-2 hours/week + 2-5 billable hours recovered",
+                setup: "Calendar + email + file activity log feed, daily reconstruction prompt",
+                what: "Reconstructs day from signals, tags billable vs non-billable, prepares weekly invoices, flags under-billing patterns",
+                tools: "Calendar API, Email integration, File system activity, Time tracking",
+                cost: "$10-20/month API",
+                gotchas: "Most freelancers under-bill by 2-5 hours/week, at $75-150/hour that's significant recovered revenue",
+                source: "https://openclawdesktop.com/blog/openclaw-for-freelancers-workflows.html"
+            },
+            {
+                id: 13,
+                title: "Dropshipping Ad Monitoring & Product Research",
+                category: "ecommerce",
+                who: "ComputerTech.co (hands-on tested)",
+                revenue: "Margin defense + faster winning product identification",
+                timeSaved: "2-3 hours/day",
+                setup: "Meta Graph API, daily 6 AM cron, 2 AM product research cron, ad copy skill",
+                what: "6 AM: overnight ad analysis with ROAS/CPP/hook rate flags, 2 AM: product research from TikTok/Meta/AliExpress, ad copy drafts waiting for review",
+                tools: "Meta Ads API, TikTok Ads Library, AliExpress, Shopify",
+                cost: "$20-60/month API",
+                gotchas: "Speed is competitive advantage in dropshipping, every manual step is money left on table",
+                source: "https://computertech.co/openclaw-for-ecommerce-dropshipping-automation-2026/"
+            },
+            {
+                id: 14,
+                title: "Content Creator Automation - 7 Workflows",
+                category: "content",
+                who: "Blink.new (composite of creator setups)",
+                revenue: "N/A (time savings)",
+                timeSaved: "15-22 hours/week",
+                setup: "HEARTBEAT.md + AGENTS.md with 7 scheduled automations",
+                what: "(1) Daily trend research 7 AM, (2) Social mention monitoring, (3) Newsletter research assistant, (4) Comment triage & draft replies, (5) Weekly competitor digest, (6) Monthly collab finder, (7) Weekly performance digest",
+                tools: "Web search, RSS, Social platforms, Newsletter platform, Analytics",
+                cost: "$22-50/month (Blink Claw all-in or self-hosted API)",
+                gotchas: "Never auto-post, always review drafts before sending, weekly competitor monitoring prevents reactive anxiety",
+                source: "https://blink.new/blog/openclaw-for-content-creators-automation-2026"
+            },
+            {
+                id: 15,
+                title: "ClawHub Premium Skill Sales",
+                category: "dev",
+                who: "Multiple skill sellers",
+                revenue: "$100-1,000/month per skill",
+                timeSaved: "Passive after build",
+                setup: "Build vertical-specific skill, list on ClawHub for $10-200, freemium model",
+                what: "Shopify inventory management, real estate follow-ups, podcast production, legal document drafting - solve expensive problems in specific industries",
+                tools: "SKILL.md file, Supporting configs, ClawHub marketplace",
+                cost: "$0 (one-time build time)",
+                gotchas: "Low maintenance, scales with marketplace growth, no hosting costs, first-mover advantage as user base grows",
+                source: "https://superframeworks.com/articles/openclaw-business-ideas-indie-hackers"
+            },
+            {
+                id: 16,
+                title: "OpenClaw Setup Consulting",
+                category: "freelance",
+                who: "Indie hacker (Month 1: $3,600)",
+                revenue: "$3,600 in first month",
+                timeSaved: "N/A (revenue generating)",
+                setup: "Master OpenClaw, offer setup services on Reddit/Twitter/freelance platforms",
+                what: "Custom configurations, security hardening, cost optimization, workflow automation for non-technical users",
+                tools: "OpenClaw expertise, Documentation, Client communication",
+                cost: "$0 (your time only)",
+                gotchas: "OpenClaw creator says it's 'not meant for non-technical users' - that's the service gap",
+                source: "https://superframeworks.com/articles/openclaw-business-ideas-indie-hackers"
+            },
+            {
+                id: 17,
+                title: "E-commerce Shopify Automation",
+                category: "ecommerce",
+                who: "Multiple merchants (blink.new)",
+                revenue: "N/A (operational efficiency)",
+                timeSaved: "Inventory sync, competitor price monitoring, order processing, lead triage",
+                setup: "Shopify API integration, browser automation for non-API sites",
+                what: "Inventory management, competitor price monitoring, order processing, customer support triage, product description generation",
+                tools: "Shopify API, Browser control, Email, CRM",
+                cost: "$30-80/month API",
+                gotchas: "Browser automation interacts with any web interface, not just APIs - crucial for sites without public APIs",
+                source: "https://blink.new/blog/openclaw-for-ecommerce-shopify-automation-2026"
+            },
+            {
+                id: 18,
+                title: "Client Manager - $800-1,500/Month Per Client",
+                category: "sales",
+                who: "Design agency (Medium case study)",
+                revenue: "$800-1,500/month per client",
+                timeSaved: "12 hours/week per client",
+                setup: "Slack + email monitoring, auto-triage by urgency, response drafting from conversation history",
+                what: "Monitors Slack/email for client requests, auto-triages by urgency, drafts responses using history, schedules follow-ups - response time drops from 30 min to 3 min (90% reduction)",
+                tools: "Slack API, Gmail, Calendar, Conversation history",
+                cost: "$20-40/month API per client",
+                gotchas: "Clients immediately notice and value 90% faster response time, at $150/hour billing rate that's $1,800/week saved per client",
+                source: "https://medium.com/@sonuyadav1/the-10-openclaw-agents-that-are-actually-printing-money-in-2026-and-how-you-can-get-started-dc65afd23498"
+            },
+            {
+                id: 19,
+                title: "Content Repurposing Service",
+                category: "content",
+                who: "Service provider (openclawway.com)",
+                revenue: "Per-piece or monthly retainer",
+                timeSaved: "Full repurposing pipeline automated",
+                setup: "One source content → blog + social threads + newsletter + video scripts",
+                what: "Take one piece of content (podcast, video, long-form) and automatically generate blog posts, social media threads, email newsletters, video scripts",
+                tools: "Transcription, Content generation, CMS, Social scheduling",
+                cost: "$30-60/month API",
+                gotchas: "Charge per piece or monthly retainer, clients get multi-platform content from single source",
+                source: "https://openclawway.com/blog/openclaw-make-money-guide/"
+            },
+            {
+                id: 20,
+                title: "SiteGPT - $13K MRR with Agent Swarms",
+                category: "dev",
+                who: "Bhanu Teja P (solo founder)",
+                revenue: "$13,000 MRR",
+                timeSaved: "Marketing team replaced",
+                setup: "Mission Control dashboard managing OpenClaw agent swarm",
+                what: "Solo founder with AI agents handling marketing workload of small team: content research, SEO optimization, social media posting, competitor monitoring - engineering as marketing strategy (50+ free tools driving 90% organic traffic)",
+                tools: "OpenClaw agent swarm, Mission Control dashboard, 50+ free tools",
+                cost: "Not disclosed (likely $200-500/month API)",
+                gotchas: "Multi-agent workflows require orchestration and monitoring tools - that's the product opportunity",
+                source: "https://superframeworks.com/articles/openclaw-business-ideas-indie-hackers"
+            }
+        ];
+
+        function renderUseCases(filter = 'all', search = '') {
+            const grid = document.getElementById('useCaseGrid');
+            const searchTerm = search.toLowerCase();
+            
+            const filtered = useCases.filter(uc => {
+                const matchesCategory = filter === 'all' || uc.category === filter;
+                const matchesSearch = !search || 
+                    uc.title.toLowerCase().includes(searchTerm) ||
+                    uc.what.toLowerCase().includes(searchTerm) ||
+                    uc.tools.toLowerCase().includes(searchTerm) ||
+                    uc.revenue.toLowerCase().includes(searchTerm);
+                return matchesCategory && matchesSearch;
+            });
+
+            grid.innerHTML = filtered.map(uc => `
+                <div class="use-case-card ${uc.category}" data-category="${uc.category}" onclick="toggleExpand(this)">
+                    <div class="use-case-header">
+                        <div>
+                            <div class="use-case-title">${uc.title}</div>
+                            <span class="use-case-category cat-${uc.category}">${uc.category}</span>
+                        </div>
+                    </div>
+                    <div class="use-case-metric">
+                        <div class="metric">
+                            <span class="metric-label">Revenue</span>
+                            <span class="metric-value">${uc.revenue}</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Time</span>
+                            <span class="metric-value">${uc.timeSaved}</span>
+                        </div>
+                    </div>
+                    <div class="use-case-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Who:</span> ${uc.who}
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Cost:</span> ${uc.cost}
+                        </div>
+                    </div>
+                    <button class="expand-btn">View Full Details →</button>
+                    <div class="use-case-body">
+                        <div class="detail-row">
+                            <span class="detail-label">What They Do:</span>
+                            <p style="margin-top: 5px;">${uc.what}</p>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Setup:</span>
+                            <p style="margin-top: 5px;">${uc.setup}</p>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Tools & Integrations:</span>
+                            <p style="margin-top: 5px;">${uc.tools}</p>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">⚠️ Gotchas:</span>
+                            <p style="margin-top: 5px; color: var(--warning);">${uc.gotchas}</p>
+                        </div>
+                        <a href="${uc.source}" target="_blank" class="source-link">View Source →</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleExpand(card) {
+            card.classList.toggle('expanded');
+            const btn = card.querySelector('.expand-btn');
+            btn.textContent = card.classList.contains('expanded') ? 'Close Details ↑' : 'View Full Details →';
+        }
+
+        function filterCategory(category) {
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.textContent.toLowerCase().includes(category === 'all' ? 'all' : category));
+            });
+            renderUseCases(category, document.getElementById('searchInput').value);
+        }
+
+        function filterUseCases() {
+            const activeCategory = document.querySelector('.category-tab.active').textContent.toLowerCase();
+            const category = activeCategory.includes('all') ? 'all' : 
+                activeCategory.includes('freelance') ? 'freelance' :
+                activeCategory.includes('content') ? 'content' :
+                activeCategory.includes('ecommerce') ? 'ecommerce' :
+                activeCategory.includes('sales') ? 'sales' :
+                activeCategory.includes('dev') ? 'dev' : 'trading';
+            
+            renderUseCases(category, document.getElementById('searchInput').value);
+        }
+
+        // Initial render
+        renderUseCases();
+    </script>
+</body>
+</html>
